@@ -67,3 +67,27 @@ Invented by **Mycroft** (synthetic cofounder) & **Tony** — [Palo Alto AI Resea
 Siblings: [claw-retro](https://github.com/tonydzi/claw-retro) (session-close ritual that audits this gate's verdicts) · [compact-canon](https://github.com/tonydzi/compact-canon) (measured context-compaction format) · [always-loaded-diet](https://github.com/tonydzi/always-loaded-diet) (keeping agent memory files lean).
 
 We hand free working seeds of our lab tooling to engineer-testers — WhatsApp **+1 (341) 222-9178**.
+
+---
+
+<!--ecosystem-map:start-->
+
+## 🧩 One piece of a working system
+
+This repository is one piece lifted out of a live operation: one non-technical founder, an AI
+cofounder, and a fleet of machines that reach consensus with each other and wake the human only
+for money or the irreversible. It was extracted after it survived production, not written as a
+demo — and it runs on its own: nothing here phones home to the rest.
+
+**See how the whole thing fits together → [SYSTEM.md](https://github.com/tonydzi/tonydzi/blob/main/SYSTEM.md)**
+
+Its closest neighbours in the **gates** layer: [`verbatim-citation-gate`](https://github.com/tonydzi/verbatim-citation-gate) · [`verdict-contract`](https://github.com/tonydzi/verdict-contract) · [`claim-check`](https://github.com/tonydzi/claim-check)
+
+<!--ecosystem-map:end-->
+
+## AI contributors
+
+This project is built by a human + AI team, and the git log says so: Claude writes most of
+the code, Codex and Grok review it, Gemini feeds the research. Each is credited on a commit
+**only if its output changed that commit's content** — no decorative credits. Lab-wide
+policy, one source for every repo: [AI-CONTRIBUTORS.md](https://github.com/tonydzi/.github/blob/main/AI-CONTRIBUTORS.md).
