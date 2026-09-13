@@ -25,7 +25,7 @@ Both are plain procedure + prompts. No server, no framework.
 3. **Break it on purpose** — empty input, missing dependency, wrong-drive paths, stale config; does it degrade loudly or silently pretend? The ones that bit us are listed in [GOTCHAS.md](GOTCHAS.md). Our measured catalog of the failure classes that slip through green tests: [GOTCHAS.md](GOTCHAS.md).
 4. **Visibility layer** — can you SEE that it worked (counters, logs)? This is what catches *silent* success and *silent* failure. A watchdog must be proven two ways: shown RED on a deliberately broken target, and run from its real scheduler context — our session reaper once produced 15 green scheduled runs during a live outage in 2026, because nobody had checked the second half.
 5. **Root-cause anything that broke**, fix, re-run. Patch-the-symptom is banned by [TT-SKILL.md](TT-SKILL.md); the test is "remove the fix — does the symptom return?"
-6. **Verdict with proof**: ✅ / ⚠️ / ❌. Only ✅ with evidence counts as "done", and [TT-SKILL.md](TT-SKILL.md) says what evidence means. An explicit skipped check caps the verdict at ⚠️ — no silent skips, which is the rule [TT-SKILL.md](TT-SKILL.md) will not bend.
+6. **Verdict with proof**: ✅ / ⚠️ / ❌. Only ✅ with evidence counts as "done", and [TT-SKILL.md](TT-SKILL.md) says what evidence means. An explicit skipped check caps the verdict at ⚠️ — no silent skips, which is the one rule it will not bend.
 
 ## The breaker panel (honest second opinions)
 
