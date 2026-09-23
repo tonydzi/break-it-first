@@ -81,8 +81,6 @@ demo — and it runs on its own: nothing here phones home to the rest.
 
 **See how the whole thing fits together → [SYSTEM.md](https://github.com/tonydzi/tonydzi/blob/main/SYSTEM.md)**
 
-Its closest neighbours in the **gates** layer: [`verbatim-citation-gate`](https://github.com/tonydzi/verbatim-citation-gate) · [`verdict-contract`](https://github.com/tonydzi/verdict-contract) · [`claim-check`](https://github.com/tonydzi/claim-check)
-
 <!--ecosystem-map:end-->
 
 ## AI contributors
