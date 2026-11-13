@@ -1,5 +1,56 @@
 # break-it-first
 
+A checklist that makes an AI agent prove its work actually runs, and try to break it, before it is allowed to say "done".
+
+**Who it's for:** anyone who uses an AI agent (Claude Code, Codex, Cursor) to build scripts, tools or automations.
+**What you get:** a short written procedure plus rules for asking other AI models to attack your agent's work instead of praising it.
+
+## Quick start
+1. Open [TT-SKILL.md](TT-SKILL.md). It is a plain text file with the 6 steps.
+2. Copy it to `~/.claude/skills/tt/SKILL.md` (Claude Code), or paste it into any agent's instructions.
+3. After your agent builds something, tell it: "run /tt on what you just built".
+
+**Done when:** the agent answers with real command output and a verdict of OK, WARN or FAIL, instead of just "done".
+
+> Want an AI agent to do it for you? Paste this to Claude Code / Codex / Cursor:
+> "Read the 'For AI agents' section of https://github.com/tonydzi/break-it-first and set it up for me."
+
+## For AI agents
+
+### Preconditions
+- No runtime needed. The repo is Markdown only: `TT-SKILL.md`, `GOTCHAS.md`, `FOR-ROBOTS.md`.
+- Claude Code reads skills from `~/.claude/skills/<name>/SKILL.md`. Other agents: ask the human where their instruction file lives.
+- Ask the human: user-level (all projects) or project-level (this repo only) install?
+
+### Install
+```bash
+git clone https://github.com/tonydzi/break-it-first
+mkdir -p ~/.claude/skills/tt
+cp break-it-first/TT-SKILL.md ~/.claude/skills/tt/SKILL.md
+```
+Project-level: use `<project>/.claude/skills/tt/SKILL.md` instead.
+
+### Configure
+Nothing to configure. The multi-model panel part is a method described in this README, not code. If the human wants it, ask which model CLIs they have; do not assume any.
+
+### Verify
+```bash
+head -3 ~/.claude/skills/tt/SKILL.md
+```
+Expected: the first line is `---` and the second line is `name: tt`.
+
+### Uninstall / rollback
+```bash
+rm -r ~/.claude/skills/tt
+```
+
+### Rules for the agent
+- Do not overwrite an existing `~/.claude/skills/tt/`. If it exists, show the human a diff first.
+- Never report "done" for something you built without running it and quoting real output.
+- Do not send code or logs to other vendors' models without the human's yes.
+
+## Details
+
 **A post-build quality gate for agent work: run it live, break it on purpose, get an adversarial second opinion from rival models, and only then say "done" — because "built" and "works" are different claims** — the procedure ships as [TT-SKILL.md](TT-SKILL.md).
 
 ## The pain, in your words
