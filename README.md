@@ -25,8 +25,19 @@ A checklist that makes an AI agent prove its work actually runs, and try to brea
 ### Install
 ```bash
 git clone https://github.com/tonydzi/break-it-first
-mkdir -p ~/.claude/skills/tt
-cp break-it-first/TT-SKILL.md ~/.claude/skills/tt/SKILL.md
+test -e ~/.claude/skills/tt && echo "EXISTS: stop, show the human a diff first" || {
+  mkdir -p ~/.claude/skills/tt
+  cp break-it-first/TT-SKILL.md ~/.claude/skills/tt/SKILL.md
+}
+```
+Windows PowerShell:
+```powershell
+git clone https://github.com/tonydzi/break-it-first
+$d = "$HOME\.claude\skills\tt"
+if (Test-Path $d) { "EXISTS: stop, show the human a diff first" } else {
+  New-Item -ItemType Directory -Force $d | Out-Null
+  Copy-Item break-it-first\TT-SKILL.md "$d\SKILL.md"
+}
 ```
 Project-level: use `<project>/.claude/skills/tt/SKILL.md` instead.
 
@@ -36,13 +47,15 @@ Nothing to configure. The multi-model panel part is a method described in this R
 ### Verify
 ```bash
 head -3 ~/.claude/skills/tt/SKILL.md
+cmp break-it-first/TT-SKILL.md ~/.claude/skills/tt/SKILL.md && echo SAME
 ```
-Expected: the first line is `---` and the second line is `name: tt`.
+Expected: the first line is `---`, the second is `name: tt`, and `SAME` is printed (PowerShell: `Get-Content "$HOME\.claude\skills\tt\SKILL.md" -TotalCount 3`, and compare with `fc.exe` or `Get-FileHash`). This proves the file is in place and complete, not that the agent loads it: start a fresh Claude Code session and check that `/tt` is offered. Other agents: paste the file into their instruction file and ask them to name its steps.
 
 ### Uninstall / rollback
 ```bash
 rm -r ~/.claude/skills/tt
 ```
+PowerShell: `Remove-Item -Recurse "$HOME\.claude\skills\tt"`. Ask the human first: this deletes a folder.
 
 ### Rules for the agent
 - Do not overwrite an existing `~/.claude/skills/tt/`. If it exists, show the human a diff first.
@@ -109,7 +122,7 @@ Take the last thing your agent declared "done". Ask: *what actual output proved 
 
 **Why break it on purpose if tests are green?** Because green tests attack what the author thought of. [GOTCHAS.md](GOTCHAS.md) is our dated catalog of classes that stayed green while broken — substring detectors, unit-mismatched ratios, fallback metrics that act, default-branch routing.
 
-**Does the panel slow things down?** One command, all rails in parallel, 300s budget. The alternative was shipping at two-thirds done.
+**Does the panel slow things down?** In our lab the panel runs all vendors in parallel under a 300 s budget; that runner is our own tooling and is not shipped in this repo, so here the panel is a method you wire up with your own model CLIs. The alternative was shipping at two-thirds done.
 
 ## Attribution & license
 
