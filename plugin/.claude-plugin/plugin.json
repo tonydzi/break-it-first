@@ -1,0 +1,24 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "break-it-first",
+  "displayName": "break-it-first",
+  "version": "0.1.0",
+  "description": "Post-build quality gate skill: after an agent builds something executable, it runs it live, breaks it on purpose, checks visibility, asks rival models to attack it and gives a verdict with evidence before saying done. Instructions only.",
+  "author": {
+    "name": "Anton Dziatkovskii",
+    "url": "https://github.com/tonydzi"
+  },
+  "homepage": "https://github.com/tonydzi/break-it-first",
+  "repository": "https://github.com/tonydzi/break-it-first",
+  "license": "MIT",
+  "keywords": [
+    "testing",
+    "quality-gate",
+    "verification",
+    "code-review",
+    "adversarial-review",
+    "agents"
+  ],
+  "privacyPolicyUrl": "https://github.com/tonydzi/break-it-first/blob/main/PRIVACY.md",
+  "skills": "./skills/"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "break-it-first",
+  "owner": {
+    "name": "Anton Dziatkovskii",
+    "url": "https://github.com/tonydzi"
+  },
+  "metadata": {
+    "description": "Post-build quality gate for agent work: run it live, break it on purpose, adversarial second opinion, verdict with evidence.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "break-it-first",
+      "source": "./plugin",
+      "description": "Post-build quality gate skill. Instructions only: no code, no server.",
+      "version": "0.1.0",
+      "license": "MIT",
+      "category": "development"
+    }
+  ]
+}

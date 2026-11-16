@@ -10,6 +10,13 @@ A checklist that makes an AI agent prove its work actually runs, and try to brea
 2. Copy it to `~/.claude/skills/tt/SKILL.md` (Claude Code), or paste it into any agent's instructions.
 3. After your agent builds something, tell it: "run /tt on what you just built".
 
+**Claude Code plugin:** the same procedure ships as an instructions-only plugin in [plugin/](plugin/):
+```text
+/plugin marketplace add tonydzi/break-it-first
+/plugin install break-it-first@break-it-first
+```
+The skill is then available as `/break-it-first`.
+
 **Done when:** the agent answers with real command output and a verdict of OK, WARN or FAIL, instead of just "done".
 
 > Want an AI agent to do it for you? Paste this to Claude Code / Codex / Cursor:
